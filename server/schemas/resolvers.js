@@ -11,6 +11,20 @@ const resolvers = {
       //find one
       return Post.findOne({ _id });
     },
+    users: async () => {
+      // get all
+      return User.find()
+        .select("-__v -password")
+        .populate("friends")
+        .populate("posts");
+    },
+    // get one
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select("-__v -password")
+        .populate("friends")
+        .populate("posts");
+    },
   },
 };
 
