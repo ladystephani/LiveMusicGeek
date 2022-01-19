@@ -24,10 +24,20 @@ const typeDefs = gql`
     friends: [User]
   }
   type Query {
+    me: User
     users: [User]
     user(username: String!): User
     posts(username: String): [Post]
     post(_id: ID!): Post
+  }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
   }
 `;
 
