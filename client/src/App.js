@@ -11,7 +11,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
-import "./App.css";
 
 const httpLink = createHttpLink({
   //in react 3000, so to use server's 3001, need to specify below:
