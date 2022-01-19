@@ -14,7 +14,7 @@ import Home from "./pages/Home";
 
 const httpLink = createHttpLink({
   //in react 3000, so to use server's 3001, need to specify below:
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 
 const client = new ApolloClient({
