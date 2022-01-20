@@ -5,6 +5,7 @@ import Auth from "../utils/auth";
 
 import PostList from "../components/PostList/index.js";
 import FriendList from "../components/FriendList";
+import PostForm from "../components/PostForm/index.js";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -19,6 +20,11 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
+        {loggedIn && (
+          <div className="col-12 mb-3">
+            <PostForm />
+          </div>
+        )}
         <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
           {loading ? (
             <div>Loading.....</div>

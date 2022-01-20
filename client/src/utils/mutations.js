@@ -22,3 +22,31 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_FRIEND = gql`
+  mutation addFriend($id: ID!) {
+    addFriend(friendId: $id) {
+      _id
+      username
+      friendCount
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;
+export const ADD_POST = gql`
+  mutation addPost($postText: String!) {
+    addPost(postText: $postText) {
+      _id
+      postText
+      createdAt
+      username
+      replyCount
+      replies {
+        _id
+      }
+    }
+  }
+`;
