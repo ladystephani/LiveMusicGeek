@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_POST } from "../utils/queries";
 import ReplyList from "../components/ReplyList";
+import ReplyForm from "../components/ReplyForm";
+import Auth from "../utils/auth";
 
 const SinglePost = (props) => {
   //computer keyboard probably needs to be set to US English,
@@ -34,6 +36,7 @@ const SinglePost = (props) => {
 
         {post.replyCount > 0 && <ReplyList replies={post.replies} />}
       </div>
+      {Auth.loggedIn() && <ReplyForm postId={post._id} />}
     </div>
   );
 };

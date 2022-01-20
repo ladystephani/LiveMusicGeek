@@ -50,3 +50,18 @@ export const ADD_POST = gql`
     }
   }
 `;
+
+export const ADD_REPLY = gql`
+  mutation addReply($postId: ID!, $replyBody: String!) {
+    addReply(postId: $postId, replyBody: $replyBody) {
+      _id
+      replyCount
+      replies {
+        _id
+        replyBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
